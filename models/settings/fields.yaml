@@ -1,0 +1,11 @@
+fields:
+    exchange:
+        type: switch
+        label: Update Exchange rates every day
+        commentAbove: Exchange rates will be updated every day and save to cache
+        default: true
+    pribor:
+        type: switch
+        label: Update PRIBOR rates every day
+        commentAbove: PRIBOR rates will be updated every day and save to cache
+        default: true
