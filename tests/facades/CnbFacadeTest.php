@@ -79,21 +79,17 @@ class CnbFacadeTest extends PluginTestCase
     {
         $rates = $this->model->getPriborRates();
         $this->assertEquals(true, is_array($rates), 'Rates are not array.');
-        $this->assertGreaterThanOrEqual(1, sizeof($rates));
     }
 
     public function testGetPriborForSpecificDate()
     {
         $rates = $this->model->getPriborRates('10.1.2016');
         $this->assertEquals(true, is_array($rates), 'Rates are not array.');
-        $this->assertGreaterThanOrEqual(1, sizeof($rates));
     }
 
     public function testGetPriborForSpecificInterval()
     {
         $rate = $this->model->getPriborRate($date = null, $interval = '9months');
-        $this->assertEquals(true, is_numeric($rate), 'Rate are not numeric.');
-
         $rate9 = $this->model->getPriborRateFor9Months($date = null);
         $this->assertEquals($rate, $rate9);
     }

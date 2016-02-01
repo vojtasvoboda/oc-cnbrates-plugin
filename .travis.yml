@@ -18,6 +18,7 @@ before_script:
   - mkdir -p ./october/plugins/vojtasvoboda/cnbrates
   - mv !(october) october/plugins/vojtasvoboda/cnbrates
   - cd october
+  - composer self-update
   - travis_retry composer install --no-interaction --prefer-source
 
 script: vendor/bin/phpunit plugins/vojtasvoboda/cnbrates
