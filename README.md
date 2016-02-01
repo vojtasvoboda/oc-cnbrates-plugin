@@ -1,14 +1,19 @@
 # ČNB Rates plugin for OctoberCMS
 
-Implemented ČNB services: Exchange rates, PRIBOR rates.
+[![Build Status](https://travis-ci.org/vojtasvoboda/oc-cnbrates-plugin.svg?branch=master)](https://travis-ci.org/vojtasvoboda/oc-cnbrates-plugin)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/vojtasvoboda/oc-cnbrates-plugin/blob/master/LICENSE)
 
-Required plugins: none.
+ČNB Rates plugin provide financial data from ČNB (Czech National Bank).
+
+Implemented ČNB services: Exchange rates, PRIBOR rates.
 
 Features:
 - automatically daily update
 - fires event after update, so integration is very easy
 - prepared for implementating other ČNB services
 - covered by unit tests
+
+Required plugins: none.
 
 ## Installation
 
