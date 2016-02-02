@@ -22,3 +22,7 @@ before_script:
   - travis_retry composer install --no-interaction --prefer-source
 
 script: vendor/bin/phpunit plugins/vojtasvoboda/cnbrates
+
+addons:
+    code_climate:
+        repo_token: 00eb2d3ab61da3728242601ab6434d8b75dca5bd4445b5e22c1d2774b0f3384b
