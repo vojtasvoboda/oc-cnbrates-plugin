@@ -21,13 +21,12 @@ before_script:
   - composer self-update
   - travis_retry composer install --no-interaction --prefer-source
   - cd plugins/vojtasvoboda/cnbrates
-  - composer install --dev
-  - cd ../../..
+  - composer install
 
-script: vendor/bin/phpunit plugins/vojtasvoboda/cnbrates --coverage-clover plugins/vojtasvoboda/cnbrates/build/logs/clover.xml
+script: ../../../vendor/bin/phpunit --coverage-clover plugins/vojtasvoboda/cnbrates/build/logs/clover.xml
 
 after_script:
-  - plugins/vojtasvoboda/cnbrates/vendor/bin/test-reporter
+  - vendor/bin/test-reporter
 
 addons:
     code_climate:
