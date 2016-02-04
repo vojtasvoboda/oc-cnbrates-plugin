@@ -1,4 +1,19 @@
 {
+    "name": "vojtasvoboda/oc-cnbrates-plugin",
+    "type": "october-plugin",
+    "description": "ČNB rates plugin for OctoberCMS",
+    "homepage": "https://github.com/vojtasvoboda/oc-cnbrates-plugin",
+    "keywords": ["october", "plugin", "cnb", "exchange", "rates"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vojta Svoboda",
+            "email": "vojtasvoboda.cz@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.9"
+    },
     "require-dev": {
         "codeclimate/php-test-reporter": "^0.2.0"
     }
