@@ -22,7 +22,7 @@ before_script:
   - cd plugins/vojtasvoboda/cnbrates
   - composer install
 
-script: ../../../vendor/bin/phpunit --coverage-clover plugins/vojtasvoboda/cnbrates/build/logs/clover.xml
+script: ../../../vendor/bin/phpunit --coverage-clover build/logs/clover.xml
 
 after_script:
   - vendor/bin/test-reporter
