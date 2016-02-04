@@ -19,15 +19,15 @@ class PriborService extends BaseService
     {
         $data = $this->getData($date);
         $intervalKeys = $this->getIntervalKeys();
-        $r = [];
+        $returnRates = [];
 
         foreach($data as $key => $rate) {
             if (isset($intervalKeys[$key])) {
-                $r[$intervalKeys[$key]] = round(floatval(strtr($rate[2], [',' => '.'])), 2);
+                $returnRates[$intervalKeys[$key]] = $this->priceStringToFloat($rate[2], 2);
             }
         }
 
-        return $r;
+        return $returnRates;
     }
 
     /**

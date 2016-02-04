@@ -145,7 +145,7 @@ $cnb->updateTodayExchangeRates();
 
 Run `phpunit` command in plugin directory. All test must pass.
 
-## TODO
+## Future plans
 
 **Feel free to send pullrequest!**
 

@@ -12,10 +12,10 @@ class CnbFacade
 
     private $priborService;
 
-    public function __construct(ExchangeRateService $ers, PriborService $ps)
+    public function __construct(ExchangeRateService $exchanges, PriborService $pribors)
     {
-        $this->exchangeRateService = $ers;
-        $this->priborService = $ps;
+        $this->exchangeRateService = $exchanges;
+        $this->priborService = $pribors;
     }
 
 

@@ -17,26 +17,26 @@ class ExchangeRateService extends BaseService
      */
     public function getExchangeRates($date = null)
     {
-        $rates = $this->getData($date, $keyIndex = 3);
-        $r = [];
+        $keyIndex = 3;
+        $rates = $this->getData($date, $keyIndex);
+        $returnRates = [];
+        $rounding = 3;
 
         foreach($rates as $key => $rate)
         {
             if (sizeof($rate) >= 4)
             {
-                $rateAsNumber = round(floatval(strtr($rate[4], [',' => '.'])), 3);
-
-                $r[$key] = [
+                $returnRates[$key] = [
                     'country' => $rate[0],
                     'currency' => $rate[1],
                     'base' => intval($rate[2]),
                     'symbol' => $rate[3],
-                    'rate' => $rateAsNumber,
+                    'rate' => $this->priceStringToFloat($rate[4], $rounding),
                 ];
             }
         }
 
-        return $r;
+        return $returnRates;
     }
 
     /**

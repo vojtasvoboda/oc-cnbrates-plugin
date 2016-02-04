@@ -29,6 +29,18 @@ class BaseServiceTest extends PluginTestCase
         return App::make('VojtaSvoboda\CnbRates\Services\BaseService', [$mock]);
     }
 
+    public function testGetDataSource()
+    {
+        $model = $this->model;
+        $this->setExpectedException('Exception', "Service URL can't be empty.");
+        $model->getDataSource();
+    }
+
+    public function testGetIdent()
+    {
+        $this->assertNull($this->model->getIdent());
+    }
+
     public function testGetSourceUrl()
     {
         $dataSource = $this->model->getSourceUrl();
@@ -49,5 +61,12 @@ class BaseServiceTest extends PluginTestCase
         $model = $this->getModelWithMockedSource();
         $data = $model->getData();
         $this->assertEquals($data['9 měsíců'][2], "0,42");
+    }
+
+    public function testPriceStringToFloat()
+    {
+        $model = $this->model;
+        $this->assertEquals(1.23, $model->priceStringToFloat("1,234", 2));
+        $this->assertEquals(1.234, $model->priceStringToFloat("1,234", 3));
     }
 }

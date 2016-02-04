@@ -84,6 +84,21 @@ class BaseService
     }
 
     /**
+     * Convert price string to float number
+     *
+     * @param $string
+     * @param $rounding
+     *
+     * @return float
+     */
+    public function priceStringToFloat($string, $rounding = 2)
+    {
+        $stringWithDots = strtr($string, [',' => '.']);
+
+        return round(floatval($stringWithDots), $rounding);
+    }
+
+    /**
      * Transform data source to array
      *
      * @param $source
@@ -93,8 +108,9 @@ class BaseService
      */
     private function transformSourceToArray($source, $keyIndex = 0)
     {
-        $r = [];
+        $return = [];
         $lines = preg_split('/\r\n|\n|\r/', trim($source));
+
         foreach($lines as $key => $line)
         {
             // file headers
@@ -104,9 +120,9 @@ class BaseService
 
             // file lines
             $data = explode('|', $line);
-            $r[$data[$keyIndex]] = $data;
+            $return[$data[$keyIndex]] = $data;
         }
 
-        return $r;
+        return $return;
     }
 }
