@@ -1,13 +1,13 @@
 build:
     dependencies:
         before:
-            - git clone https://github.com/octobercms/october.git
-            - mkdir -p ./october/plugins/vojtasvoboda/cnbrates
-            - mv * october/plugins/vojtasvoboda/cnbrates 2> /dev/null
-            - cd october
+            - find . -delete
+            - git clone https://github.com/octobercms/october.git .
             - composer self-update
             - composer install --no-interaction --prefer-source
+            - mkdir -p ./plugins/vojtasvoboda/cnbrates
             - cd plugins/vojtasvoboda/cnbrates
+            - git clone https://github.com/vojtasvoboda/oc-cnbrates-plugin.git .
             - composer install
     tests:
         override:

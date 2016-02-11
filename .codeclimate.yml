@@ -4,8 +4,3 @@ engines:
     checks:
       CleanCode/StaticAccess:
         enabled: false
-  duplication:
-    enabled: true
-    exclude_fingerprints:
-    - 3861eba6e586fd362dda884e31e89f94
-    - 34b6092625fd249b68bf16be06fb40b9
