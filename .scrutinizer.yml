@@ -3,7 +3,7 @@ build:
         before:
             - git clone https://github.com/octobercms/october.git
             - mkdir -p ./october/plugins/vojtasvoboda/cnbrates
-            - mv !(october) october/plugins/vojtasvoboda/cnbrates
+            - mv * october/plugins/vojtasvoboda/cnbrates 2> /dev/null
             - cd october
             - composer self-update
             - composer install --no-interaction --prefer-source
