@@ -1,0 +1,15 @@
+build:
+    dependencies:
+        before:
+            - git clone https://github.com/octobercms/october.git
+            - mkdir -p ./october/plugins/vojtasvoboda/cnbrates
+            - mv !(october) october/plugins/vojtasvoboda/cnbrates
+            - cd october
+            - composer self-update
+            - composer install --no-interaction --prefer-source
+            - cd plugins/vojtasvoboda/cnbrates
+            - composer install
+    tests:
+        override:
+            -
+                command: ../../../vendor/bin/phpunit
