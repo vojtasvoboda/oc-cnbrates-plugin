@@ -1,7 +1,9 @@
 # ČNB Rates plugin for OctoberCMS
 
 [![Build Status](https://travis-ci.org/vojtasvoboda/oc-cnbrates-plugin.svg?branch=master)](https://travis-ci.org/vojtasvoboda/oc-cnbrates-plugin)
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/vojtasvoboda/oc-cnbrates-plugin/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/vojtasvoboda/oc-cnbrates-plugin/?branch=master)
+[![HHVM Status](https://img.shields.io/hhvm/symfony/symfony/master.svg)](http://hhvm.h4cc.de/package/vojtasvoboda/oc-cnbrates-plugin)
+[![Scrutinizer Code Quality](https://img.shields.io/scrutinizer/g/vojtasvoboda/oc-cnbrates-plugin.svg)](https://scrutinizer-ci.com/g/vojtasvoboda/oc-cnbrates-plugin/?branch=master)
+[![Code Climate](https://img.shields.io/codeclimate/github/vojtasvoboda/oc-cnbrates-plugin.svg)](https://codeclimate.com/github/vojtasvoboda/oc-cnbrates-plugin)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/vojtasvoboda/oc-cnbrates-plugin/blob/master/LICENSE)
 
 ČNB Rates plugin provide financial data from ČNB (Czech National Bank).
