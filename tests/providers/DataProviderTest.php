@@ -12,7 +12,7 @@ class DataProviderTest extends PluginTestCase
 
     private $cacheIdent = 'vojtasvoboda_cnbrates';
 
-    private $valid_url = 'https://www.cnb.cz/cs/financni_trhy/penezni_trh/pribor/denni.txt';
+    private $validUrl = 'https://www.cnb.cz/cs/financni_trhy/penezni_trh/pribor/denni.txt';
 
     public function setUp()
     {
@@ -54,7 +54,7 @@ class DataProviderTest extends PluginTestCase
 
     public function testGetDataWithBadDate()
     {
-        $url = $this->valid_url;
+        $url = $this->validUrl;
         $date = 'abcdefg';
 
         $exception = 'DateTime::__construct(): ';
@@ -66,7 +66,7 @@ class DataProviderTest extends PluginTestCase
 
     public function testGetData()
     {
-        $url = $this->valid_url;
+        $url = $this->validUrl;
         $todayObj = new \DateTime();
         $today = $todayObj->format('d.m.Y');
 
@@ -97,7 +97,7 @@ class DataProviderTest extends PluginTestCase
 
     public function testGetDataWithDateAndIdent()
     {
-        $url = $this->valid_url;
+        $url = $this->validUrl;
         $date = '12.1.2016';
         $ident = 'test';
 

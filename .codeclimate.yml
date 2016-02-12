@@ -4,3 +4,7 @@ engines:
     checks:
       CleanCode/StaticAccess:
         enabled: false
+  duplication:
+    enabled: true
+  phpcodesniffer:
+    enabled: true
