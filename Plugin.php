@@ -44,20 +44,20 @@ class Plugin extends PluginBase
     public function registerSchedule($schedule)
     {
         // Exchange service daily update when allowed by Settings
-        $schedule->call(function () {
+        $schedule->call(function() {
             $cnb = $this->app->make('cnb');
             $cnb->updateTodayExchangeRates();
 
-        })->daily()->when(function () {
+        })->daily()->when(function() {
             return !!Settings::get('exchange', true);
         });
 
         // PRIBOR service daily update when allowed by Settings
-        $schedule->call(function () {
+        $schedule->call(function() {
             $cnb = $this->app->make('cnb');
             $cnb->updateTodayPriborRates();
 
-        })->daily()->when(function () {
+        })->daily()->when(function() {
             return !!Settings::get('pribor', true);
         });
     }
