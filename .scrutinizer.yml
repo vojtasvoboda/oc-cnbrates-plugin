@@ -9,3 +9,11 @@ build:
             - cd plugins/vojtasvoboda/cnbrates
             - git clone https://github.com/vojtasvoboda/oc-cnbrates-plugin.git .
             - composer install
+build:
+    tests:
+        override:
+            -
+                command: 'phpunit --coverage-clover=coverage'
+                coverage:
+                    file: 'coverage'
+                    format: 'php-clover'
