@@ -1,6 +1,5 @@
 <?php namespace VojtaSvoboda\CnbRates;
 
-use Backend;
 use System\Classes\PluginBase;
 use VojtaSvoboda\CnbRates\Models\Settings;
 

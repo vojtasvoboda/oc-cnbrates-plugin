@@ -11,7 +11,7 @@ class CnbFacadeTest extends PluginTestCase
 {
     private $model;
 
-    private $cache_ident = 'vojtasvoboda_cnbrates';
+    private $cacheIdent = 'vojtasvoboda_cnbrates';
 
     private $events = [];
 
@@ -20,7 +20,7 @@ class CnbFacadeTest extends PluginTestCase
         parent::setUp();
         $this->model = $this->getModel();
         $this->eventCatcherInit();
-        File::deleteDirectory(temp_path($this->cache_ident), true);
+        File::deleteDirectory(temp_path($this->cacheIdent), true);
     }
 
     private function eventCatcherInit()
@@ -56,14 +56,16 @@ class CnbFacadeTest extends PluginTestCase
 
     public function testGetExchangeRate()
     {
-        $rate = $this->model->getExchangeRate($currency = 'EUR');
+    	$currency = 'EUR';
+        $rate = $this->model->getExchangeRate($currency);
         $this->assertNotEmpty($rate);
         $this->assertGreaterThan(0.000, $rate);
     }
 
     public function testGetNonexistExchangeRate()
     {
-        $rate = $this->model->getExchangeRate($currency = 'ABC');
+    	$currency = 'ABC';
+        $rate = $this->model->getExchangeRate($currency);
         $this->assertNull($rate);
     }
 
@@ -89,7 +91,8 @@ class CnbFacadeTest extends PluginTestCase
 
     public function testGetPriborForSpecificInterval()
     {
-        $rate = $this->model->getPriborRate($date = null, $interval = '9months');
+    	$interval = '9months';
+        $rate = $this->model->getPriborRate($date = null, $interval);
         $rate9 = $this->model->getPriborRateFor9Months($date = null);
         $this->assertEquals($rate, $rate9);
     }

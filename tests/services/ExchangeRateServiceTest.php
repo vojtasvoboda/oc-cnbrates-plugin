@@ -34,13 +34,15 @@ class ExchangeRateServiceTest extends PluginTestCase
 
     public function testGetExchangeRateForNonexistingCurrency()
     {
-        $rate = $this->model->getExchangeRate($currency = 'ABC');
+    	$currency = 'ABC';
+        $rate = $this->model->getExchangeRate($currency);
         $this->assertNull($rate);
     }
 
     public function testGetPriborRate()
     {
-        $data = $this->model->getExchangeRate($currency = 'EUR');
+    	$currency = 'EUR';
+        $data = $this->model->getExchangeRate($currency);
         $this->assertEquals(27.065, $data);
     }
 }

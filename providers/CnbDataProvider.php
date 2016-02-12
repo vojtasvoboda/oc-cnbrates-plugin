@@ -26,14 +26,14 @@ class CnbDataProvider
      */
     public function getData($url, $date = null, $ident = null)
     {
-        if(!$url) {
+        if (!$url) {
             throw new \Exception("Service URL can't be empty.");
         }
 
         $dateObj = new \DateTime($date);
         $date = $dateObj->format('d.m.Y');
 
-        if(!$this->isFileExists($date, $ident)) {
+        if (!$this->isFileExists($date, $ident)) {
             $this->saveDataToFile($this->loadDataFromUrl($url), $date, $ident);
         }
 
@@ -43,7 +43,7 @@ class CnbDataProvider
     /**
      * Load data from URL
      *
-     * @param $url
+     * @param string $url
      *
      * @return string
      */
@@ -107,7 +107,7 @@ class CnbDataProvider
      */
     private function getFilePath($date, $ident = null)
     {
-        if(!$ident) {
+        if (!$ident) {
             $ident = $this->undefinedFolderName;
         }
 
@@ -122,16 +122,16 @@ class CnbDataProvider
     private function checkCacheFolder($ident)
     {
         $cacheFolder = temp_path($this->cachePathPrefix . '/');
-        if(!file_exists($cacheFolder)) {
+        if (!file_exists($cacheFolder)) {
             mkdir($cacheFolder);
         }
 
-        if(!$ident) {
+        if (!$ident) {
             $ident = $this->undefinedFolderName;
         }
 
         $identFolder = temp_path($this->cachePathPrefix . '/' . $ident . '/');
-        if(!file_exists($identFolder)) {
+        if (!file_exists($identFolder)) {
             mkdir($identFolder);
         }
     }

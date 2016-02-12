@@ -22,7 +22,7 @@ class ExchangeRateService extends BaseService
         $returnRates = [];
         $rounding = 3;
 
-        foreach($rates as $key => $rate)
+        foreach ($rates as $key => $rate)
         {
             if (sizeof($rate) >= 4)
             {

@@ -22,7 +22,7 @@ class BaseService
      *
      * @param $date
      *
-     * @return array
+     * @return string
      */
     public function getDataSource($date = null)
     {
@@ -49,7 +49,7 @@ class BaseService
     /**
      * Get service identifier
      *
-     * @return mixed
+     * @return string
      */
     public function getIdent()
     {
@@ -61,7 +61,7 @@ class BaseService
      *
      * @param $date
      *
-     * @return mixed
+     * @return string
      */
     public function getSourceUrl($date = null)
     {
@@ -76,7 +76,7 @@ class BaseService
     /**
      * Returns service base URL
      *
-     * @return mixed
+     * @return string
      */
     public function getBaseUrl()
     {
@@ -86,8 +86,8 @@ class BaseService
     /**
      * Convert price string to float number
      *
-     * @param $string
-     * @param $rounding
+     * @param string $string
+     * @param int $rounding
      *
      * @return float
      */
@@ -101,7 +101,7 @@ class BaseService
     /**
      * Transform data source to array
      *
-     * @param $source
+     * @param string $source
      * @param int $keyIndex
      *
      * @return array
@@ -111,7 +111,7 @@ class BaseService
         $return = [];
         $lines = preg_split('/\r\n|\n|\r/', trim($source));
 
-        foreach($lines as $key => $line)
+        foreach ($lines as $key => $line)
         {
             // file headers
             if ($key < 3) {

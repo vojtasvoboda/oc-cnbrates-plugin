@@ -10,7 +10,7 @@ class DataProviderTest extends PluginTestCase
 {
     private $model;
 
-    private $cache_ident = 'vojtasvoboda_cnbrates';
+    private $cacheIdent = 'vojtasvoboda_cnbrates';
 
     private $valid_url = 'https://www.cnb.cz/cs/financni_trhy/penezni_trh/pribor/denni.txt';
 
@@ -18,7 +18,7 @@ class DataProviderTest extends PluginTestCase
     {
         parent::setUp();
         $this->model = $this->getModel();
-        File::deleteDirectory(temp_path($this->cache_ident), true);
+        File::deleteDirectory(temp_path($this->cacheIdent), true);
     }
 
     private function getModel()
@@ -28,22 +28,28 @@ class DataProviderTest extends PluginTestCase
 
     public function testCacheFolderEmpty()
     {
-        $all = File::allFiles(temp_path($this->cache_ident));
+        $all = File::allFiles(temp_path($this->cacheIdent));
         $this->assertEmpty($all);
     }
 
     public function testGetEmptyData()
     {
+    	$url = '';
+    	$date = null;
+    	$ident = null;
+
         $this->setExpectedException('Exception', "Service URL can't be empty.");
-        $this->model->getData($url = '', $date = null, $ident = null);
+        $this->model->getData($url, $date, $ident);
     }
 
     public function testGetDataWithBadUrl()
     {
         $url = 'http://www.this-url-not-exists.cz/';
+    	$date = null;
+    	$ident = null;
 
         $this->setExpectedException('ErrorException');
-        $this->model->getData($url, $date = null, $ident = null);
+        $this->model->getData($url, $date, $ident);
     }
 
     public function testGetDataWithBadDate()
@@ -51,7 +57,10 @@ class DataProviderTest extends PluginTestCase
         $url = $this->valid_url;
         $date = 'abcdefg';
 
-        $this->setExpectedException('Exception', 'DateTime::__construct(): Failed to parse time string (abcdefg) at position 0 (a): The timezone could not be found in the database');
+        $exception = 'DateTime::__construct(): ';
+        $exception .= 'Failed to parse time string (abcdefg) at position 0 (a): ';
+        $exception .= 'The timezone could not be found in the database';
+        $this->setExpectedException('Exception', $exception);
         $this->model->getData($url, $date);
     }
 
@@ -62,11 +71,13 @@ class DataProviderTest extends PluginTestCase
         $today = $todayObj->format('d.m.Y');
 
         // at first time, data should be saved to file
-        $data = $this->model->getData($url, $date = null, $ident = null);
+        $date = null;
+        $ident = null;
+        $data = $this->model->getData($url, $date, $ident);
         $this->assertNotEmpty($data);
 
         // check if data exists
-        $filename = temp_path($this->cache_ident . '/undefined/' . $today . '.txt');
+        $filename = temp_path($this->cacheIdent . '/undefined/' . $today . '.txt');
         $this->assertFileExists($filename);
 
         // get timestamp
@@ -74,7 +85,7 @@ class DataProviderTest extends PluginTestCase
         $this->assertEquals(true, is_numeric($mtime));
 
         // try load data at second time (should be loaded from cache)
-        $data2 = $this->model->getData($url, $date = null, $ident = null);
+        $data2 = $this->model->getData($url, $date, $ident);
         $this->assertNotEmpty($data2);
 
         // data should be equal
@@ -87,13 +98,15 @@ class DataProviderTest extends PluginTestCase
     public function testGetDataWithDateAndIdent()
     {
         $url = $this->valid_url;
+        $date = '12.1.2016';
+        $ident = 'test';
 
         // at first time, data should be saved to file
-        $data = $this->model->getData($url, $date = '12.1.2016', $ident = 'test');
+        $data = $this->model->getData($url, $date, $ident);
         $this->assertNotEmpty($data);
 
         // check if data exists
-        $filename = temp_path($this->cache_ident . '/test/12.01.2016.txt');
+        $filename = temp_path($this->cacheIdent . '/test/12.01.2016.txt');
         $this->assertFileExists($filename);
     }
 }

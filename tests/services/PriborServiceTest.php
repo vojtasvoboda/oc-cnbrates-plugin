@@ -34,14 +34,18 @@ class PriborServiceTest extends PluginTestCase
 
     public function testGetPriborRate()
     {
-        $rate = $this->model->getPriborRate($date = null, '9months');
+    	$date = null;
+    	$interval = '9months';
+        $rate = $this->model->getPriborRate($date, $interval);
         $this->assertEquals(true, is_numeric($rate));
         $this->assertEquals(0.42, $rate);
     }
 
     public function testGetPriborRateForNonexistingInterval()
     {
-        $data = $this->model->getPriborRate($date = null, 'abcde');
+    	$date = null;
+    	$interval = 'abcde';
+        $data = $this->model->getPriborRate($date, $interval);
         $this->assertNull($data);
     }
 }

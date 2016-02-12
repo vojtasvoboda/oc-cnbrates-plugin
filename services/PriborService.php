@@ -21,7 +21,7 @@ class PriborService extends BaseService
         $intervalKeys = $this->getIntervalKeys();
         $returnRates = [];
 
-        foreach($data as $key => $rate) {
+        foreach ($data as $key => $rate) {
             if (isset($intervalKeys[$key])) {
                 $returnRates[$intervalKeys[$key]] = $this->priceStringToFloat($rate[2], 2);
             }
