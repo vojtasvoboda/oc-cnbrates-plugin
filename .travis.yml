@@ -26,7 +26,3 @@ script: ../../../vendor/bin/phpunit --coverage-clover build/logs/clover.xml
 
 after_script:
   - vendor/bin/test-reporter
-
-addons:
-    code_climate:
-        repo_token: 6459965ebd05b39e4374a1d294568a18ad1998098a7ce94cdf58bf9e11e7a44d
