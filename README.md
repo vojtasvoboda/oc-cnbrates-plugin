@@ -1,7 +1,7 @@
 # ČNB Rates plugin for OctoberCMS
 
 [![Build Status](https://travis-ci.org/vojtasvoboda/oc-cnbrates-plugin.svg?branch=master)](https://travis-ci.org/vojtasvoboda/oc-cnbrates-plugin)
-[![HHVM Status](https://img.shields.io/hhvm/symfony/symfony/master.svg)](http://hhvm.h4cc.de/package/vojtasvoboda/oc-cnbrates-plugin)
+[![HHVM Status](https://img.shields.io/hhvm/vojtasvoboda/oc-cnbrates-plugin/master.svg)](http://hhvm.h4cc.de/package/vojtasvoboda/oc-cnbrates-plugin)
 [![Codacy](https://img.shields.io/codacy/e8497321daeb4dbdbec2bcaa8c74206c.svg)](https://www.codacy.com/app/vojtasvoboda/oc-cnbrates-plugin)
 [![Scrutinizer Coverage](https://img.shields.io/scrutinizer/coverage/g/vojtasvoboda/oc-cnbrates-plugin.svg)](https://scrutinizer-ci.com/g/vojtasvoboda/oc-cnbrates-plugin/?branch=master)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/vojtasvoboda/oc-cnbrates-plugin/blob/master/LICENSE)
