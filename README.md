@@ -16,7 +16,7 @@ Features:
 - prepared for implementating other ČNB services
 - covered by unit tests
 
-Required plugins: none.
+Required plugins: none. Tested with the latest stable OctoberCMS build 349.
 
 ## Installation
 
@@ -152,7 +152,8 @@ Run `phpunit` command in plugin directory. All test must pass.
 
 **Feel free to send pullrequest!**
 
-- implement other ČNB services
+- [ ] implement other ČNB services
+- [ ] add button 'Update rates now'
 
 ## License
 
