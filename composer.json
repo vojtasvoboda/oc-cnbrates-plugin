@@ -1,6 +1,9 @@
 {
     "name": "vojtasvoboda/oc-cnbrates-plugin",
     "type": "october-plugin",
+    "extra": {
+        "installer-name": "cnbrates"
+    },
     "description": "ČNB rates plugin for OctoberCMS",
     "homepage": "https://github.com/vojtasvoboda/oc-cnbrates-plugin",
     "keywords": ["october", "plugin", "cnb", "exchange", "rates"],
