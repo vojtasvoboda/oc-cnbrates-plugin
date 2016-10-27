@@ -17,5 +17,15 @@
     "require": {
         "php": ">=5.5.9",
         "composer/installers": "~1.0"
+    },
+    "scripts": {
+        "build": [
+            "@composer install --no-progress --no-interaction --no-suggest",
+            "@test"
+        ],
+        "test": [
+            "composer dumpautoload",
+            "phpunit"
+        ]
     }
 }
